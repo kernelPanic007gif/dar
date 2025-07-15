@@ -16,11 +16,11 @@ const Hero = () => {
 
   return (
     <div className="lg:flex lg:justify-between lg:px-16 gap-6  my-10">
-      <div className="lg:w-[70%] border relative flex p-10 overflow-hidden bg-slate-100 rounded">
+      <div className="lg:w-[70%] border relative flex p-10 overflow-hidden  bg-slate-100 rounded">
         <div className="flex flex-col  justify-between text-[#0e224c]">
           <h5 className="text-xs font-thin">HOT RIGHT NOW</h5>
           <h2 className="font-semibold">Sale Up to 50% Off</h2>
-          <h1 className="font-bold ">{product.name}</h1>
+          <h1 className="font-bold transition-all  ">{product.name}</h1>
           <p className="w-[90%] text-sm my-4 ">{product.description}</p>
           <div className="my-4 space-x-2">
             <Link
