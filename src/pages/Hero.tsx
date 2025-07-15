@@ -31,9 +31,9 @@ const Hero = () => {
       <div className="lg:w-[70%] border relative flex p-10 overflow-hidden  bg-[#d4f7ff] rounded">
         <div className="flex flex-col  justify-between text-[#0e224c]">
           <h5 className="text-xs font-thin">HOT RIGHT NOW</h5>
-          <h2 className="font-semibold">Sale Up to 50% Off</h2>
-          <h1 className="font-bold transition-all  ">{product.name}</h1>
-          <p className="w-[90%] text-xs my-4 ">{product.description}</p>
+          <h2 className="font-semibold text-2xl">Sale Up to 50% Off</h2>
+          <h1 className="font-bold transition-all text-4xl">{product.name}</h1>
+          <p className="w-[90%] text-sm my-10 ">{product.description}</p>
           <div className="my-4 space-x-2">
             <Link
               className="bg-[#fd9636] px-4 py-2 rounded text-sm text-white"
