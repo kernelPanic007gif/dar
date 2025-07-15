@@ -20,7 +20,7 @@ const Hero = () => {
         const newNumber = prev >= 2 ? 0 : prev + 1;
         return newNumber;
       });
-    }, 3000);
+    }, 4000);
     return () => clearInterval(inter);
   }, []);
 
