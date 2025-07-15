@@ -4,7 +4,7 @@ import pc from "../images/smallpc.png";
 import leftHero from "../images/lefthero.png";
 import { BsArrowRight } from "react-icons/bs";
 import "../index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [number, setNumber] = useState(0);
@@ -12,16 +12,28 @@ const Hero = () => {
     number >= 2 ? setNumber(0) : setNumber((prev) => prev + 1);
     console.log(number);
   };
+
+  useEffect(() => {
+    console.log(number);
+    const inter = setInterval(() => {
+      setNumber((prev) => {
+        const newNumber = prev >= 2 ? 0 : prev + 1;
+        return newNumber;
+      });
+    }, 3000);
+    return () => clearInterval(inter);
+  }, []);
+
   const product = products[number];
 
   return (
     <div className="lg:flex lg:justify-between lg:px-16 gap-6  my-10">
-      <div className="lg:w-[70%] border relative flex p-10 overflow-hidden  bg-slate-100 rounded">
+      <div className="lg:w-[70%] border relative flex p-10 overflow-hidden  bg-[#d4f7ff] rounded">
         <div className="flex flex-col  justify-between text-[#0e224c]">
           <h5 className="text-xs font-thin">HOT RIGHT NOW</h5>
           <h2 className="font-semibold">Sale Up to 50% Off</h2>
           <h1 className="font-bold transition-all  ">{product.name}</h1>
-          <p className="w-[90%] text-sm my-4 ">{product.description}</p>
+          <p className="w-[90%] text-xs my-4 ">{product.description}</p>
           <div className="my-4 space-x-2">
             <Link
               className="bg-[#fd9636] px-4 py-2 rounded text-sm text-white"
@@ -46,7 +58,7 @@ const Hero = () => {
           <BsArrowRight />
         </button>
       </div>
-      <div className=" flex gap-2 justify-between  flex-col md:mx-10 my-5 lg:my-0  lg:mx-0 ">
+      <div className=" flex gap-2 justify-between  flex-col  my-5 lg:my-0  lg:mx-0 ">
         <div className="bg-red-50 rounded overflow-hidden lg:gap-2 p-2 w-full relative lg:p-4 flex  justify-center border-[1px]">
           <div className="flex flex-col items-start justify-around ">
             <h5 className="text-xs ">
@@ -98,7 +110,7 @@ const products = [
     name: "Headphone",
     // image: the image of the product,
     description:
-      "Cutting-edge gadgets, devices, and tech accessories, from smartphones to smart home systems.",
+      "Cutting-edge gadgets, devices, and tech accessories, from smartphones to smart home systems,  from smartphones to smart home systems.",
   },
   {
     id: 2,
