@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { User, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-
+import { useState } from "react";
+import { User, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { SearchBar } from "@/components/search/SearchBar";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,19 +13,39 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             {/* <Home className="h-6 w-6 text-primary" /> */}
-            <img src="src/images/logoblck.png" alt="error" className="w-[60px] object-contain" />
-
+            <img
+              src="src/images/logoblck.png"
+              alt="error"
+              className="w-[60px] object-contain"
+            />
           </div>
-
+          <div className="flex flex-col md:flex-row w-[400px] ">
+            <SearchBar />
+          </div>
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary">
+            <Link
+              to="/"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
               Accueil
             </Link>
-            <Link to="/search" className="text-sm text-muted-foreground hover:text-primary">
-              Recherche
+            <Link
+              to="/search"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
+              Shop
             </Link>
-            <Link to="/about" className="text-sm text-muted-foreground hover:text-primary">
+            <Link
+              to="/about"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
               À propos
+            </Link>
+            <Link
+              to="/about"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
+              Vendors
             </Link>
           </nav>
 
@@ -33,23 +53,25 @@ export function Header() {
             {/* <Button className="rounded-full">
               <Search className="h-5 w-5" />
             </Button> */}
-            <Link to="/login" className="text-sm text-muted-foreground hover:text-primary">
+            <Link
+              to="/login"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
               <Button className="rounded-full">
                 <User className="h-5 w-5" />
               </Button>
             </Link>
-
-
-
           </div>
 
           <Button
-
-
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>
